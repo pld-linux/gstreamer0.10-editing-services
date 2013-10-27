@@ -1,26 +1,26 @@
 Summary:	GStreamer Editing Services library
 Summary(pl.UTF-8):	Biblioteka funkcji edycyjnych GStreamera (GStreamer Editing Services)
-Name:		gstreamer-editing-services
+Name:		gstreamer0.10-editing-services
 Version:	0.10.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://gstreamer.freedesktop.org/src/gst-editing-services/%{name}-%{version}.tar.bz2
+Source0:	http://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-%{version}.tar.bz2
 # Source0-md5:	aa03e275eecae88ac202471d4dba56a3
 URL:		http://gstreamer.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 1:2.22
 BuildRequires:	gobject-introspection-devel >= 0.9.6
-BuildRequires:	gstreamer-devel >= 0.10.31.1
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.31.1
+BuildRequires:	gstreamer0.10-devel >= 0.10.31.1
+BuildRequires:	gstreamer0.10-plugins-base-devel >= 0.10.31.1
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.3
 Requires:	glib2 >= 1:2.22
-Requires:	gstreamer >= 0.10.31.1
-Requires:	gstreamer-plugins-base >= 0.10.31.1
+Requires:	gstreamer0.10 >= 0.10.31.1
+Requires:	gstreamer0.10-plugins-base >= 0.10.31.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,8 +37,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GStreamer Editing Services
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.22
-Requires:	gstreamer-devel >= 0.10.31.1
-Requires:	gstreamer-plugins-base-devel >= 0.10.31.1
+Requires:	gstreamer0.10-devel >= 0.10.31.1
+Requires:	gstreamer0.10-plugins-base-devel >= 0.10.31.1
 
 %description devel
 Header files for GStreamer Editing Services library.
@@ -71,7 +71,7 @@ API documentation for GStreamer Editing Services library.
 Dokumentacja API biblioteki GStreamer Editing Services.
 
 %prep
-%setup -q
+%setup -q -n gstreamer-editing-services-%{version}
 
 %build
 %{__libtoolize}
