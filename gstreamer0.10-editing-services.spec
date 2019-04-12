@@ -2,11 +2,12 @@ Summary:	GStreamer Editing Services library
 Summary(pl.UTF-8):	Biblioteka funkcji edycyjnych GStreamera (GStreamer Editing Services)
 Name:		gstreamer0.10-editing-services
 Version:	0.10.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-%{version}.tar.bz2
+Source0:	https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-%{version}.tar.bz2
 # Source0-md5:	aa03e275eecae88ac202471d4dba56a3
+Patch0:		gstreamer-common-gtkdoc.patch
 URL:		http://gstreamer.net/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -72,6 +73,8 @@ Dokumentacja API biblioteki GStreamer Editing Services.
 
 %prep
 %setup -q -n gstreamer-editing-services-%{version}
+cd common
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -92,6 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libges-0.10.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -109,7 +115,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libges-0.10.so
-%{_libdir}/libges-0.10.la
 %{_includedir}/gstreamer-0.10/ges
 %{_datadir}/gir-1.0/GES-0.10.gir
 %{_pkgconfigdir}/gst-editing-services-0.10.pc
