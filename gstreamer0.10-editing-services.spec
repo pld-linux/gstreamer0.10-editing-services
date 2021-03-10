@@ -19,6 +19,7 @@ BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.3
+BuildRequires:	rpm-build >= 4.6
 Requires:	glib2 >= 1:2.22
 Requires:	gstreamer0.10 >= 0.10.31.1
 Requires:	gstreamer0.10-plugins-base >= 0.10.31.1
@@ -64,6 +65,7 @@ Summary:	API documentation for GStreamer Editing Services library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki GStreamer Editing Services
 Group:		Documentation
 Requires:	gtk-doc-common
+BuildArch:	noarch
 
 %description apidocs
 API documentation for GStreamer Editing Services library.
