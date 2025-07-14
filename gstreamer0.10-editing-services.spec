@@ -76,7 +76,7 @@ Dokumentacja API biblioteki GStreamer Editing Services.
 %prep
 %setup -q -n gstreamer-editing-services-%{version}
 cd common
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
